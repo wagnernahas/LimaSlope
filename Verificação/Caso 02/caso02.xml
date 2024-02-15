@@ -1,0 +1,123 @@
+<root>
+  <superficie_terreno>
+    <sizex>4</sizex>
+    <coordx-0>20.0</coordx-0>
+    <coordx-1>30.0</coordx-1>
+    <coordx-2>50.0</coordx-2>
+    <coordx-3>70.0</coordx-3>
+    <sizey>4</sizey>
+    <coordy-0>25.0</coordy-0>
+    <coordy-1>25.0</coordy-1>
+    <coordy-2>35.0</coordy-2>
+    <coordy-3>35.0</coordy-3>
+  </superficie_terreno>
+  <lista_camadas>
+    <sizecamadas>6</sizecamadas>
+    <camada_0>
+      <soloname>SOLO EX_1</soloname>
+      <sizex>2</sizex>
+      <coordx-0>20.0</coordx-0>
+      <coordx-1>70.0</coordx-1>
+      <sizey>2</sizey>
+      <coordy-0>20.0</coordy-0>
+      <coordy-1>20.0</coordy-1>
+    </camada_0>
+    <camada_1>
+      <soloname>SOLO EX_1</soloname>
+      <sizex>2</sizex>
+      <coordx-0>20.0</coordx-0>
+      <coordx-1>70.0</coordx-1>
+      <sizey>2</sizey>
+      <coordy-0>20.0</coordy-0>
+      <coordy-1>20.0</coordy-1>
+    </camada_1>
+    <camada_2>
+      <soloname>SOLO1 EX_2</soloname>
+      <sizex>5</sizex>
+      <coordx-0>30.0</coordx-0>
+      <coordx-1>40.0</coordx-1>
+      <coordx-2>50.0</coordx-2>
+      <coordx-3>54.0</coordx-3>
+      <coordx-4>70.0</coordx-4>
+      <sizey>5</sizey>
+      <coordy-0>25.0</coordy-0>
+      <coordy-1>27.0</coordy-1>
+      <coordy-2>29.0</coordy-2>
+      <coordy-3>31.0</coordy-3>
+      <coordy-4>31.0</coordy-4>
+    </camada_2>
+    <camada_3>
+      <soloname>SOLO2 EX_2</soloname>
+      <sizex>3</sizex>
+      <coordx-0>40.0</coordx-0>
+      <coordx-1>52.0</coordx-1>
+      <coordx-2>70.0</coordx-2>
+      <sizey>3</sizey>
+      <coordy-0>27.0</coordy-0>
+      <coordy-1>24.0</coordy-1>
+      <coordy-2>24.0</coordy-2>
+    </camada_3>
+    <camada_4>
+      <soloname>SOLO3 EX_2</soloname>
+      <sizex>2</sizex>
+      <coordx-0>20.0</coordx-0>
+      <coordx-1>70.0</coordx-1>
+      <sizey>2</sizey>
+      <coordy-0>20.0</coordy-0>
+      <coordy-1>20.0</coordy-1>
+    </camada_4>
+    <camada_5>
+      <soloname>SOLO3 EX_2</soloname>
+      <sizex>2</sizex>
+      <coordx-0>20.0</coordx-0>
+      <coordx-1>70.0</coordx-1>
+      <sizey>2</sizey>
+      <coordy-0>10.0</coordy-0>
+      <coordy-1>10.0</coordy-1>
+    </camada_5>
+  </lista_camadas>
+  <lista_solos>
+    <sizesolos>5</sizesolos>
+    <solo_0>
+      <name>SOLO EX_1</name>
+      <gama>20.0</gama>
+      <fi>19.6</fi>
+      <coesao>3.0</coesao>
+    </solo_0>
+    <solo_1>
+      <name>SOLO EX_1</name>
+      <gama>20.0</gama>
+      <fi>19.6</fi>
+      <coesao>3.0</coesao>
+    </solo_1>
+    <solo_2>
+      <name>SOLO1 EX_2</name>
+      <gama>19.5</gama>
+      <fi>38.0</fi>
+      <coesao>0.0</coesao>
+    </solo_2>
+    <solo_3>
+      <name>SOLO2 EX_2</name>
+      <gama>19.5</gama>
+      <fi>23.0</fi>
+      <coesao>5.3</coesao>
+    </solo_3>
+    <solo_4>
+      <name>SOLO3 EX_2</name>
+      <gama>19.5</gama>
+      <fi>20.0</fi>
+      <coesao>7.2</coesao>
+    </solo_4>
+  </lista_solos>
+  <parametros>
+    <entry_x_inicial>34.121</entry_x_inicial>
+    <entry_x_final>34.123</entry_x_final>
+    <entry_y_inicial>43.254</entry_y_inicial>
+    <entry_y_final>43.256</entry_y_final>
+    <entry_inc_centro>0.001</entry_inc_centro>
+    <entry_r_inicial>18.781</entry_r_inicial>
+    <entry_r_final>18.782</entry_r_final>
+    <entry_inc_raio>0.001</entry_inc_raio>
+    <entry_dx>0.85</entry_dx>
+  </parametros>
+</root>

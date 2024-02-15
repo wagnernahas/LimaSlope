@@ -1,0 +1,46 @@
+<root>
+  <superficie_terreno>
+    <sizex>4</sizex>
+    <coordx-0>20.0</coordx-0>
+    <coordx-1>30.0</coordx-1>
+    <coordx-2>50.0</coordx-2>
+    <coordx-3>70.0</coordx-3>
+    <sizey>4</sizey>
+    <coordy-0>25.0</coordy-0>
+    <coordy-1>25.0</coordy-1>
+    <coordy-2>35.0</coordy-2>
+    <coordy-3>35.0</coordy-3>
+  </superficie_terreno>
+  <lista_camadas>
+    <sizecamadas>1</sizecamadas>
+    <camada_0>
+      <soloname>SOLO EX_1</soloname>
+      <sizex>2</sizex>
+      <coordx-0>20.0</coordx-0>
+      <coordx-1>70.0</coordx-1>
+      <sizey>2</sizey>
+      <coordy-0>20.0</coordy-0>
+      <coordy-1>20.0</coordy-1>
+    </camada_0>
+  </lista_camadas>
+  <lista_solos>
+    <sizesolos>1</sizesolos>
+    <solo_0>
+      <name>SOLO EX_1</name>
+      <gama>20.0</gama>
+      <fi>19.6</fi>
+      <coesao>3.0</coesao>
+    </solo_0>
+  </lista_solos>
+  <parametros>
+    <entry_x_inicial>29.104</entry_x_inicial>
+    <entry_x_final>29.106</entry_x_final>
+    <entry_y_inicial>55.527</entry_y_inicial>
+    <entry_y_final>55.529</entry_y_final>
+    <entry_inc_centro>0.001</entry_inc_centro>
+    <entry_r_inicial>30.527</entry_r_inicial>
+    <entry_r_final>30.529</entry_r_final>
+    <entry_inc_raio>0.001</entry_inc_raio>
+    <entry_dx>0.9</entry_dx>
+  </parametros>
+</root>
