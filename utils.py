@@ -25,8 +25,6 @@ from numpy import arctan
 from mpmath.calculus.optimization import ANewton
 
 
-
-
 def arred_incremento(n: float, inc: float) -> float:
     """Funcao que faz isso isso e isso
         Parametros:
@@ -415,8 +413,8 @@ def metodo_spencer(lista_fatias, superficie_ruptura):
     return arred(FS_mp_iteracao_secundaria,3)
 
 def metodo_sarma(lista_fatias, superficie_ruptura):
-    
-    FS_sp_inicial = 1
+    print("metodo_sarma")
+    FS_sp_inicial = 3
     K_sarma = 1
     Kc = 0
     lambda_sp_inicial = 0.5
@@ -440,8 +438,10 @@ def metodo_sarma(lista_fatias, superficie_ruptura):
         wy = wy + lista_fatias[i].peso * lista_fatias[i].ym
     xG = wx/wt  
     yG = wy/wt  
-    print(xG,yG)      
-    while (K_sarma - Kc ) > tol:
+    k=tol + 1
+    k_old = k
+    print(xG,yG,K_sarma)      
+    while (k) > tol:
         lambda_sp_iteracao_primaria = lambda_sp_iteracao_secundaria
         FS_sp_inicial = FS_sp_iteracao_secundaria
         S1 = 0 
@@ -500,33 +500,19 @@ def metodo_sarma(lista_fatias, superficie_ruptura):
             S2 = S2 + P1
             S4 = S4 + w*(lista_fatias[i].xm-xG) + Di*(lista_fatias[i].ym-yG)
             #print(P1)
-        K_sarma = 0.0000001
-    lamb = S4/S3
-    k = (S1 -lamb*S2)/wt 
-    print(k,FS_sp_iteracao_secundaria)
+        lamb = S4/S3
+        k = (S1 -lamb*S2)/wt 
+        
+        if (k < k_old):
+            signal = -1
+        else:
+            signal = 1
+        k_old = k
+        FS_sp_iteracao_secundaria = FS_sp_iteracao_secundaria + 3*k
+        k = pow((pow(k,2)),0.5)
+        print(k, FS_sp_iteracao_secundaria)
+         
     return arred(FS_sp_iteracao_secundaria,3)
-
-def pega_pontos(caminho_arquivo: str):
-    doc = ez.readfile(caminho_arquivo)
-    msp = doc.modelspace()
-    pontos_aux = []
-    for entidade in msp:
-        dtype = entidade.dxftype()
-        if dtype == "POLYLINE":
-            pontos_aux.append(list(entidade.points()))
-        elif dtype == "LWPOLYLINE":
-            pontos_aux.append(list(entidade.get_points()))
-        elif dtype == "LINE":
-            aux = (list(entidade.dxf.start), list(entidade.dxf.end))
-            pontos_aux.append(aux)
-    pontos = [[0 for i in range(0, 2)] for j in range(0, len(pontos_aux[0]))]
-    for i in range(0, len(pontos_aux[0])):
-        pontos[i][0] = pontos_aux[0][i][0]
-        pontos[i][1] = pontos_aux[0][i][1]
-    if pontos[0][0] >  pontos[-1][0]:
-        return pontos[::-1]    
-    else:
-        return pontos
 
 def sort_camadas_imagem_empate(camada):
     return 1 / (np.nanmin(camada.imagem))

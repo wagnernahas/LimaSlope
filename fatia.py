@@ -32,7 +32,7 @@ class Fatia:
         #print(self.superficie_ruptura.limites)
         m = (self.yf_inf - self.yi_inf)/(self.xf - self.xi)
         self.yc = self.yi_inf + m*(self.xc - self.xi)
-        self.ym = -(self.yf_inf + self.yi_inf + self.yf_sup + self.yi_sup)/4
+        self.ym = (self.yf_inf + self.yi_inf + self.yf_sup + self.yi_sup)/4
         self.xm = self.xc
         self.lista_camadas_red = self.reduz_camadas(self.perfil_longitudinal.lista_camadas)
         self.lista_camadas_red.append(self.perfil_longitudinal.superficie_terreno)

@@ -51,7 +51,7 @@ cor_fonte_bt = cor_fonte
 
 def importa_superficie_terreno():
     global superficie_terreno
-    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf", filetypes=[("DXF","*.dxf")])
+    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf ou txt", filetypes=[("DXF","*.dxf"),("XYFiles","*.txt")])
     if filename != "":
         superficie_terreno = Superficie_Terreno(filename)
         habilitaEntrada()
@@ -64,6 +64,16 @@ def habilitaEntrada():
     bt_importa_sup_ruptura.config(state=tk.NORMAL)
     bt_importar_superficie_terreno.config(state=tk.DISABLED)
     
+def desabilitaEntrada():
+    bt_importar_nivel_agua.config(state=tk.DISABLED)
+    bt_criar_solo.config(state=tk.DISABLED)
+    bt_cria_carregamento.config(state=tk.DISABLED)
+    bt_importa_sup_ruptura.config(state=tk.DISABLED)
+    bt_importar_superficie_terreno.config(state=tk.NORMAL)
+    bt_importar_camada.config(state=tk.NORMAL)
+    bt_exporta_csv.config(state=tk.DISABLED)
+    bt_exporta_grafico.config(state=tk.DISABLED)
+    
 def plotSuperficieTerreno():
     ax1.plot(superficie_terreno.dominio, superficie_terreno.imagem, label = "Terreno", color = "brown", linewidth = 2)
     ax1.legend(loc = 0, fontsize = 'small')
@@ -74,7 +84,7 @@ def plotSuperficieTerreno():
 def importa_nivel_agua():
     global nivel_agua
     global superficie_terreno
-    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf", filetypes=[("DXF","*.dxf")])
+    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf ou txt", filetypes=[("DXF","*.dxf"),("XYFiles","*.txt")])
     if filename != "":
         nivel_agua = Nivel_Agua(superficie_terreno, filename) 
         plotNivelAgua()
@@ -240,7 +250,7 @@ def importa_camada():
         plotCamada(camada)
         return
 
-    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf", filetypes=[("DXF","*.dxf")])
+    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf ou txt", filetypes=[("DXF","*.dxf"),("XYFiles","*.txt")])
     if filename == "":
         return
     janela_seleciona_solo = tk.Toplevel(janela_principal)
@@ -673,16 +683,36 @@ def run():
     return
 
 def exporta_grafico():
-    fig.savefig("Estabilidade de taludes", edgecolor='black')
+    filenametosave = filedialog.asksaveasfilename(filetypes=[("PNG file", ".png")],
+    defaultextension=".png")
+    if filenametosave:    
+        fig.savefig(filenametosave, edgecolor='black')
 
 def exporta_csv_fatias():
-    return utils.tabela(FS[x_FS][y_FS][r_FS][4]).to_csv("tabela fatias")    
+    filenametosave = filedialog.asksaveasfilename(filetypes=[("cvs file", ".csv")],
+    defaultextension=".csv")
+    if filenametosave:
+        utils.tabela(FS[x_FS][y_FS][r_FS][4]).to_csv(filenametosave)    
 
 def zera_tudo():
     superficie_terreno = None
     lista_camadas = []
     lista_carregamentos = []
+    lista_solos = []
     FS = None
+    perfil_longitudinal = None 
+    nivel_agua = None
+    x_FS = None
+    y_FS = None
+    r_FS = None
+    
+    desabilitaEntrada()
+    label_FS1.config(text= "-")
+    label_FS2.config(text= "-")
+    label_FS3.config(text= "-")
+    label_FS4.config(text= "-")
+    label_FS5.config(text= "-")
+    label_FS_posicao.config(text=("x =          -          y =          -          r =          -          "))
 
     ax0.clear()
     ax0.set_title('Carregamentos')
@@ -734,6 +764,12 @@ def zera_tudo():
     entry_inc_raio.delete(0,END)
     entry_inc_raio.config(state=tk.NORMAL)
     label_m_inc_raio.config(state=tk.NORMAL)
+ 
+    label_dx.config(state=tk.NORMAL)
+    entry_dx.delete(0,END)
+    entry_dx.config(state=tk.NORMAL)
+    label_m_dx.config(state=tk.NORMAL)
+
 
 def abrir_arquivo():
     global superficie_terreno
@@ -1103,7 +1139,7 @@ def plotSuperficieRupturaQualquer():
 
 def importa_superficie_ruptura():
     global superficie_ruptura_qualquer
-    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf", filetypes=[("DXF","*.dxf")])
+    filename = filedialog.askopenfilename(initialdir = "/",title = "Selecione o arquivo dxf ou txt", filetypes=[("DXF","*.dxf"),("XYFiles","*.txt")])
     
     if filename == "":
         return
